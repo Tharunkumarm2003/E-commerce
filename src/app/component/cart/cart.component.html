@@ -1,0 +1,80 @@
+
+<header>
+    
+    <div class="navbar bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size:40px" class="fas fa-shipping-fast">&nbsp;
+            </i>
+            <strong style="font-size: 25px;">TK maxx</strong>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="search products">
+            </div>
+            <span class="fas fa-search search-icon"></span>
+        </div>
+        <a routerLink="/cart">
+        <button class="byn btn-primary">
+            <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+            <div style="font-style: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+    </a>
+    </div>
+</header>
+
+<ng-container *ngIf="true">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <div *ngFor="let item of cartItem">
+
+                        <thead>
+                            <tr>
+                                <th>Sr.No</th>
+                                <th>Product Name</th>
+                                <!-- <th>Product Image</th> -->
+                                <!-- <th>Description</th> -->
+                                <th>Price</th>
+                                <!-- <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th> -->
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{item.id}}</td>
+                                <td>{{item.title}}</td>
+                                <!-- <td>{{item.description}}</td> -->
+                                <td>{{item.price}}</td>
+                                <!-- <th>{{item.id}}</th>
+                                <td>{{item.id}}</td>
+                                <td>{{item.id}}</td> -->
+                                <td>
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+        
+                            </tr>
+                        </tbody>
+                    </div>
+                    
+                </table>
+            </div>
+    
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="false">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS5iENjMWNQs9v7tCk672kusH5V4rqLvQLj_83B4ARoK_msRGYQWFRV7zrVyDbxWCxbmo&usqp=CAU" alt=" ">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <button class="btn btn-primary">Show now</button>
+        </div>
+    </div>
+</ng-container>

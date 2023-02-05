@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <nav>
+        <div class="container d-flex">
+
+            <div class="item">
+                <a>
+                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/product-5806313-4863042.png" alt="">
+                    <h6> All products</h6>
+                </a>
+            </div>
+            <div class="item">
+                <a>
+                    <img src="https://thumbs.dreamstime.com/b/many-used-modern-electronic-gadgets-use-white-floor-reuse-recycle-concept-top-view-164230611.jpg"
+                        alt="">
+                    <h6>Electronics</h6>
+                </a>
+            </div>
+            <div class="item">
+                <a>
+                    <img src="https://www.suitsexpert.com/wp-content/uploads/2020/02/mens-dress-code-types-guide-scaled.jpg"
+                        alt="">
+                    <h6>Fashion</h6>
+                </a>
+                
+            </div>
+            <div class="item">
+                <a>
+                    <img style="width: 62px; margin-top: 5px;"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpsARlye_CA3krz-Ej5UdDU9gb0IYc1etDIA&usqp=CAU "
+                        alt="">
+                    <h6>Jewellery</h6>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="card-top container-fluid">
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of ProductList">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100 ch;">
+                    {{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100 ch;">
+                    {{item.description}}</p>
+                <p><strong>Price:</strong>${{item.price}}</p>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
