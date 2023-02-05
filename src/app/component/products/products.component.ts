@@ -10,7 +10,8 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class ProductsComponent implements OnInit {
   public ProductList : any;
-  
+  items:any;
+  length:number=0
   constructor(private api : ApiService, private cartService : CartService) {}
 
   ngOnInit(): void {
@@ -29,5 +30,12 @@ export class ProductsComponent implements OnInit {
     this.cartService.addtoCart(item);
 
   }
-
+  getLength() {
+    this.items = localStorage.getItem('cart');
+    if (this.items != null) {
+      return JSON.parse(this.items).length;
+    } else {
+      return 0;
+    }
+  }
 }

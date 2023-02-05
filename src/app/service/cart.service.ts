@@ -6,8 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   public cartItemList : any =[]
+  items = localStorage.getItem('cart');
+  public local: any = [];
   // public productList = new BehaviorSubject<any>([]);
-
 //   constructor() { }
 //   getProducts(){
 //     return this.productList.asObservable();
@@ -20,13 +21,21 @@ getcart(){
   console.log(JSON.parse(localStorage.getItem('cart')||"{}"))
   return JSON.parse(localStorage.getItem('cart')||"{}")
 }
-  addtoCart(Product : any){
-    this.cartItemList.push(Product);
-    localStorage.setItem('cart',JSON.stringify(this.cartItemList))
-    // this.productList.next(this.cartItemList);
-    // this.getTotalPrice();
-    console.log(this.cartItemList)
+addtoCart(Product: any) {
+  this.cartItemList.push(Product);
+  if (this.items !== null) {
+    this.local = JSON.parse(localStorage.getItem('cart') || '{}');
+    this.local.push(Product);
+    localStorage.setItem('cart', JSON.stringify(this.local));
+  } else {
+    localStorage.setItem('cart', JSON.stringify(this.cartItemList));
   }
+
+  // this.productList.next(this.cartItemList);
+  // this.getTotalPrice();
+
+  console.log(this.cartItemList);
+}
 //   getTotalPrice(){
 //     let grandTotal = 0;
 //     this.cartItemList.map((a:any)=>{
